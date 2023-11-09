@@ -1,0 +1,35 @@
+{% extends 'base_publica.html' %}
+{% load static %}
+{% block content %}
+
+<section id="home" class="hero-section-wrapper-5">
+
+  <!-- ========================= header-6 start ========================= -->
+  {% include "nav.html" %}
+  <!-- ========================= header-6 end ========================= -->
+
+  <!-- ========================= hero-5 start ========================= -->
+  <div class="hero-section hero-style-5 img-bg" style="background-image: url('{% static 'img/hero/hero-5/hero-bg.svg' %} )">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="hero-content-wrapper">
+            <h2 class="mb-30 wow fadeInUp" data-wow-delay=".2s">404 Pagina não encontrada</h2>
+            <p class="mb-30 wow fadeInUp" data-wow-delay=".4s">Por favor, entre em contato com a administrador para reportar o erro.</p>
+            <a href="#0" class="button button-lg radius-50 wow fadeInUp" data-wow-delay=".6s">Reportar <i class="lni lni-chevron-right"></i> </a>
+          </div>
+        </div>
+        <div class="col-lg-6 align-self-end">
+          <div class="hero-image wow fadeInUp" data-wow-delay=".5s">
+            <img src="{% static 'img/hero/hero-5/hero-img.svg' %} " alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ========================= hero-5 end ========================= -->
+
+</section>
+
+
+{% endblock %}

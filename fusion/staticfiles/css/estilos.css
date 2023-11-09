@@ -1,0 +1,28 @@
+.btn-close {
+    width: 30px;
+    height: 30px;
+    background-color: #2F80ED; /* Cor de fundo do botão */
+    border: none;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .btn-close::before,
+  .btn-close::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background-color: #fff; /* Cor das linhas do ícone */
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .btn-close::before {
+    transform: rotate(45deg);
+  }
+
+  .btn-close::after {
+    transform: rotate(-45deg);
+  }

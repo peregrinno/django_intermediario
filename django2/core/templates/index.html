@@ -1,0 +1,76 @@
+{% load bootstrap5 %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html lang='pt-br'>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Produtos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        {% bootstrap_css %}
+    </head>
+    <body>            
+        <div class="container">
+            <h1>Pagina Inicial - Produtos</h1>
+
+
+            {% if produtos %}
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope='col'>#</th>
+                        <th scope='col'>Ver</th>
+                        <th scope='col'>Produto</th>
+                        <th scope='col'>Preço</th>
+                        <th scope='col'>Estoque</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                        <tr>
+                            <td scope='row'>{{ produto.id }}</td>
+                            <td scope='row'>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{produto.id}}">
+                                Ver Produto
+                                </button>
+                            </td>
+                            <td scope='row'>{{ produto.nome }}</td>
+                            <td scope='row'>{{ produto.preco }}</td>
+                            <td scope='row'>{{ produto.estoque }}</td>
+                        </tr>
+
+                        <div class="modal fade " id="modal{{ produto.id }}" tabindex="-1" aria-labelledby="Produto" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="Produto">Imagem do produto {{produto.nome}}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="{{ produto.imagem.url }}" class="img-fluid" alt="{{ produto.nome }}">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+            {% else %}
+                <h2>Ainda não existem produtos cadastrados</h2>
+            {% endif %}
+        </div>
+        
+        <script src="" async defer></script>
+        {% bootstrap_javascript %}
+    </body>
+</html>
